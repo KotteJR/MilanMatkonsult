@@ -8,8 +8,8 @@ export default function Foretag () {
     return (
       <div>
         <AboutSection />
-        <TeamSection />
         <TrustedClientsSection />
+        <TeamSection />
         <MapSection />
         <Footer />
       </div>

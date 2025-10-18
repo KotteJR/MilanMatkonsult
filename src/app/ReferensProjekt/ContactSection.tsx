@@ -1,52 +1,83 @@
 "use client";
 
-import { Phone, Mail, MapPin, ArrowRight } from "lucide-react";
+import { Phone, Mail, MapPin, ArrowRight, Check } from "lucide-react";
 
 export default function ContactSection() {
   return (
-    <section className="w-full bg-white py-24 md:py-32">
-      <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12 grid md:grid-cols-2 gap-16">
-        
-        {/* LEFT SIDE */}
-        <div className="flex flex-col justify-start">
-          <div>
-            <h2 className="text-[28px] md:text-[32px] font-medium text-black">
-              Kontakta Oss
-            </h2>
-            <p className="text-[#6C6C6C] mt-4 leading-relaxed max-w-md">
-              Hör gärna av dig för offert, samarbete eller frågor om våra tjänster.
-              Vi återkommer så snart som möjligt.
-            </p>
+    <section className="w-full bg-white py-20 md:py-18">
+      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 px-6 md:px-8 lg:px-12 items-start">
+        {/* Left side info */}
+        <div className="space-y-6">
+          <h2 className="text-[30px] md:text-[34px] font-medium text-[#010207]">
+            Kontakta Oss
+          </h2>
+          <p className="text-gray-500/80 leading-relaxed">
+          Hör gärna av dig för offert, samarbete eller <br /> frågor om våra tjänster. Vi återkommer så snart <br /> som möjligt.
+          </p>
+
+          {/* Benefits List */}
+          <div className="space-y-4 md:mb-24">
+            <div className="flex items-center gap-3">
+              <div className="bg-white border-1 border-gray-600 rounded-lg p-1 w-6 h-6 flex items-center justify-center">
+                <Check size={18} className="text-gray-600" />
+              </div>
+              <span className="text-[16px] text-gray-500/80">20+ års erfarenhet</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <div className="bg-white border-1 border-gray-600 rounded-lg p-1 w-6 h-6 flex items-center justify-center">
+                <Check size={18} className="text-gray-600" />
+              </div>
+              <span className="text-[16px] text-gray-500/80">Snabb återkoppling</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <div className="bg-white border-1 border-gray-600 rounded-lg p-1 w-6 h-6 flex items-center justify-center">
+                <Check size={18} className="text-gray-600" />
+              </div>
+              <span className="text-[16px] text-gray-500/80">Skräddarsydda lösningar</span>
+            </div>
           </div>
 
-          <div className="mt-12 flex flex-col gap-3">
-            <div className="flex flex-wrap gap-3">
-              <div className="flex items-center gap-3 bg-[#F6F6F6] px-4 py-3 rounded-xl min-w-[230px]">
-                <Phone size={18} className="text-black opacity-80" />
+          <div className="flex flex-wrap gap-4">
+            {/* Phone Card - Compact */}
+            <div className="bg-[#F5F5F5] rounded-2xl p-3 w-fit flex-shrink-0">
+              <div className="flex items-center gap-4">
+                <div className="bg-[#646464]/10 rounded-xl p-3 flex-shrink-0">
+                  <Phone size={20} className="text-black" />
+                </div>
                 <div>
-                  <p className="text-[14px] text-[#5C5C5C]">Telefon</p>
-                  <p className="text-[15px] font-medium text-black">040-123 456</p>
+                  <p className="text-[14px] text-gray-600 mb-1">Telefon</p>
+                  <p className="text-sm text-black whitespace-nowrap">040-123 456</p>
                 </div>
               </div>
+            </div>
 
-              <div className="flex items-center gap-3 bg-[#F6F6F6] px-4 py-3 rounded-xl min-w-[250px]">
-                <Mail size={18} className="text-black opacity-80" />
+            {/* Email Card - Natural width */}
+            <div className="bg-[#F5F5F5] rounded-2xl p-3 w-fit flex-shrink-0">
+              <div className="flex items-center gap-4">
+                <div className="bg-[#646464]/10 rounded-xl p-3 flex-shrink-0">
+                  <Mail size={20} className="text-black" />
+                </div>
                 <div>
-                  <p className="text-[14px] text-[#5C5C5C]">E-post</p>
-                  <p className="text-[15px] font-medium text-black">
+                  <p className="text-[14px] text-gray-600 mb-1">E-post</p>
+                  <p className="text-sm text-black whitespace-nowrap">
                     info@milanmatkonsult.com
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="flex items-center gap-3 bg-[#F6F6F6] px-4 py-3 rounded-xl w-fit">
-              <MapPin size={18} className="text-black opacity-80" />
-              <div>
-                <p className="text-[14px] text-[#5C5C5C]">Adress</p>
-                <p className="text-[15px] font-medium text-black">
-                  Östra Rönneholmsvägen 20, 211 47 Malmö
-                </p>
+            {/* Address Card - Wider for full address */}
+            <div className="bg-[#F5F5F5] rounded-2xl p-3 w-fit flex-shrink-0">
+              <div className="flex items-center gap-4">
+                <div className="bg-[#646464]/10 rounded-xl p-3 flex-shrink-0">
+                  <MapPin size={20} className="text-black" />
+                </div>
+                <div>
+                  <p className="text-[14px] text-gray-600 mb-1">Adress</p>
+                  <p className="text-sm text-black whitespace-nowrap">
+                    Östra Rönneholmsvägen 20, 211 47 Malmö
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -61,7 +92,7 @@ export default function ContactSection() {
             { label: "Company", placeholder: "Skriv in ditt företagsnamn" },
           ].map((field, i) => (
             <div key={i}>
-              <label className="block text-[14px] font-medium mb-1 text-[#111]">
+              <label className="block text-[14px] mb-3 text-[#111]">
                 {field.label}
               </label>
               <input
@@ -73,7 +104,7 @@ export default function ContactSection() {
           ))}
 
           <div>
-            <label className="block text-[14px] font-medium mb-1 text-[#111]">
+            <label className="block text-[14px] mb-3 text-[#111]">
               Meddelande
             </label>
             <textarea

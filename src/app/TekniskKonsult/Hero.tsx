@@ -9,7 +9,7 @@ export default function HeroSection() {
       <div className="relative grid md:grid-cols-2 h-full max-w-7xl mx-auto items-center">
         {/* LEFT SIDE */}
         <div className="px-6 md:px-8 lg:px-12 z-10 flex flex-col justify-center h-full">
-          <h1 className="text-[38px] md:text-[44px] font-medium text-[#010207] leading-tight mb-6">
+          <h1 className="text-[38px] md:text-[44px] text-[#010207] leading-tight mb-6">
             Teknisk konsult
           </h1>
           <p className="text-[#6B6B6B] text-[18px] leading-relaxed max-w-md mb-8">
@@ -34,7 +34,7 @@ export default function HeroSection() {
         <div className="relative flex items-end justify-end h-full md:mr-[calc(-1*(100vw-100%)/2)] w-[calc(50vw+((100vw-100%)/2))]">
           <div className="relative w-full h-[70%] md:h-[93%]">
             <Image
-              src="/images/hero.png" // change to your image
+              src="/images/tekniskkonsulthero.png" // change to your image
               alt="Teknisk konsult på arbetsplats"
               fill
               priority

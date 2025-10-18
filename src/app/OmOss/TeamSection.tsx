@@ -76,8 +76,8 @@ export default function TeamSection() {
                 <Image
                   src={member.img}
                   alt={member.name}
-                  width={220}
-                  height={220}
+                  width={240}
+                  height={240}
                   className="object-cover object-top w-full h-full"
                 />
               </div>

@@ -52,7 +52,7 @@ export default function ServicesSection() {
             <br className="hidden md:block" /> i varje skede
           </h2>
 
-          <p className="mt-4 max-w-2xl mx-auto text-base md:text-lg leading-relaxed text-gray-500/70">
+          <p className="mt-4 max-w-2xl mx-auto text-base md:text-lg leading-relaxed text-gray-500/80">
             Vi kombinerar modern utrustning med lång <br />
             erfarenhet för att leverera
             pålitliga mätlösningar för 

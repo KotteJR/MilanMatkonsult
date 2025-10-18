@@ -29,10 +29,10 @@ const DATA: FAQ[] = [
 ];
 
 export default function FAQSection() {
-  const [open, setOpen] = useState<number>(0);
+  const [openItems, setOpenItems] = useState<Set<number>>(new Set([0]));
 
   return (
-    <section className="w-full bg-white py-24 md:py-32">
+    <section className="w-full bg-white py-20 md:py-18">
       <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16">
         {/* Left: section label + heading (sticky) */}
         <div className="lg:sticky lg:top-32 self-start">
@@ -44,7 +44,7 @@ export default function FAQSection() {
             </span>
           </div>
 
-          <h2 className="text-3xl md:text-4xl font-semibold text-[#010207] leading-snug">
+          <h2 className="text-3xl md:text-4xl font-medium text-[#010207] leading-snug">
             Har du frågor?
             <br />
             Vi har svaren.
@@ -54,44 +54,54 @@ export default function FAQSection() {
         {/* Right: accordions */}
         <div className="max-w-3xl w-full space-y-6">
           {DATA.map((item, i) => {
-            const isOpen = open === i;
+            const isOpen = openItems.has(i);
             return (
               <div key={i} className="rounded-2xl">
                 <button
-                  onClick={() => setOpen(isOpen ? -1 : i)}
+                  onClick={() => {
+                    const newOpenItems = new Set(openItems);
+                    if (isOpen) {
+                      newOpenItems.delete(i);
+                    } else {
+                      newOpenItems.add(i);
+                    }
+                    setOpenItems(newOpenItems);
+                  }}
                   className={[
-                    "w-full text-left rounded-2xl",
+                    "w-full text-left",
                     "bg-[#F4F4F4] hover:bg-[#F1F1F1] transition",
                     "px-6 py-5",
-                    isOpen ? "rounded-b-none" : "",
+                    isOpen ? "rounded-t-2xl" : "rounded-2xl",
                   ].join(" ")}
                 >
                   <div className="flex items-center justify-between">
-                    <span className="text-[17px] md:text-[18px] leading-snug text-[#010207]">
+                    <span className="text-[17px] md:text-[18px] leading-snug text-gray-700">
                       {item.q}
                     </span>
 
                     <span
                       className={[
-                        "inline-flex h-7 w-7 items-center justify-center rounded-full",
+                        "inline-flex h-7 w-7 items-center justify-center rounded-full transition-all duration-300 ease-in-out",
                         isOpen
-                          ? "bg-[#E88026] text-white"
-                          : "bg-white text-gray-500 border border-[#E3E3E3]",
+                          ? "bg-[#E88026] text-white border border-[#E88026]"
+                          : "text-gray-500 border border-gray-400",
                       ].join(" ")}
                     >
-                      {isOpen ? <Minus size={16} strokeWidth={2} /> : <Plus size={16} strokeWidth={2} />}
+                      <div className={`transition-transform duration-300 ease-in-out ${isOpen ? 'rotate-45' : 'rotate-0'}`}>
+                        <Plus size={16} strokeWidth={2} />
+                      </div>
                     </span>
                   </div>
                 </button>
 
                 <div
                   className={[
-                    "overflow-hidden transition-all duration-300",
-                    isOpen ? "max-h-64" : "max-h-0",
+                    "overflow-hidden transition-all duration-500 ease-in-out",
+                    isOpen ? "max-h-96" : "max-h-0",
                   ].join(" ")}
                 >
-                  <div className="border border-[#E9E9E9]/50 border-t-0 rounded-b-2xl bg-white px-6 py-5">
-                    <p className="text-[15px] leading-relaxed text-[#010207]">
+                  <div className="bg-[#F8F8F8] rounded-b-2xl px-6 py-5">
+                    <p className="text-[15px] leading-relaxed text-gray-700/90">
                       {item.a}
                     </p>
                   </div>

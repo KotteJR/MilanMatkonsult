@@ -18,7 +18,7 @@ export default function AboutSection() {
         {/* Main Content */}
         {/* Title above the grid */}
         <h2 className="text-3xl md:text-4xl font-medium text-[#010207] mb-6 md:mb-8">
-          Milan Mätkonsult – Sedan 2020
+          Milan Mätkonsult – <br /> Sedan 2020
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-[minmax(0,520px)_1fr] gap-8 md:gap-14 lg:gap-16">
@@ -34,7 +34,7 @@ export default function AboutSection() {
 
           {/* Right Text */}
           <div className="max-w-[680px] h-[240px] sm:h-[280px] md:h-[320px] lg:h-[340px] flex flex-col justify-between">
-            <div className="space-y-4 md:space-y-5 text-gray-700/90 leading-relaxed">
+            <div className="space-y-4 md:space-y-5 text-gray-500 leading-relaxed">
               <p>
                 Milan Mätkonsult är ett familjeföretag baserat i Malmö, grundat av
                 Milan Mitrovic 2005. Sedan dess har vi vuxit till ett respekterat
