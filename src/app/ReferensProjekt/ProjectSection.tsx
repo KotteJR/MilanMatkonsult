@@ -188,7 +188,7 @@ export default function ProjectsGridSection() {
         </div>
 
         {/* Cards */}
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-6 md:gap-y-12">
           {filteredAndSortedProjects.length > 0 ? (
             (showAll ? filteredAndSortedProjects : filteredAndSortedProjects.slice(0, 6)).map((p) => (
               <div key={p.id} className="rounded-2xl bg-white overflow-hidden">

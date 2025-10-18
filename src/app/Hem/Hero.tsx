@@ -5,12 +5,15 @@ import { Phone, ArrowRight } from "lucide-react";
 export default function HeroSection() {
   return (
     <section
-      className="relative w-full h-full bg-cover bg-center bg-no-repeat text-white"
-      style={{ backgroundImage: "url('/images/hero.png')" }}
+      className="relative w-full bg-cover bg-center bg-no-repeat text-white"
+      style={{ 
+        backgroundImage: "url('/images/hero.png')",
+        height: "calc(100vh - 135px)"
+      }}
     >
-      <div className="absolute inset-0 bg-black/30" /> {/* subtle overlay */}
+      <div className="absolute inset-0 bg-black/25" /> {/* subtle overlay */}
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 lg:px-12 py-40 md:py-56 flex flex-col items-center text-center gap-10">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 lg:px-12 h-full flex flex-col items-center justify-center text-center gap-10">
         {/* Tagline */}
         <div className="flex items-center justify-center gap-3 text-sm uppercase tracking-widest text-white/80">
           <span>—</span>

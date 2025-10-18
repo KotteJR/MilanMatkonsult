@@ -5,7 +5,10 @@ import { Phone, ArrowRight } from "lucide-react";
 
 export default function HeroSection() {
   return (
-    <section className="relative w-full h-screen bg-white overflow-hidden">
+    <section 
+      className="relative w-full bg-white overflow-hidden"
+      style={{ height: "calc(100vh - 135px)" }}
+    >
       <div className="relative grid md:grid-cols-2 h-full max-w-7xl mx-auto items-center">
         {/* LEFT SIDE */}
         <div className="px-6 md:px-8 lg:px-12 z-10 flex flex-col justify-center h-full">
