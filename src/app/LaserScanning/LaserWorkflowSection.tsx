@@ -42,6 +42,7 @@ export default function LaserWorkflowSection() {
     p23_rightTop: "",
     p23_bottomLeft: "",
   });
+  const [containerH, setContainerH] = useState<number | undefined>(undefined);
 
   // single-elbow helpers
   const hv = (s: Pt, e: Pt) => `M ${s.x} ${s.y} H ${e.x} V ${e.y}`; // right then down
@@ -69,6 +70,12 @@ export default function LaserWorkflowSection() {
       p23_rightTop:  hv(midRight(b2),  midTop(b3)),
       p23_bottomLeft: vh(midBottom(b2), midLeft(b3)),
     });
+
+    // Ensure the container height tightly wraps the absolutely positioned third card
+    const neededHeight = Math.ceil(b3.bottom - rb.top + PAD);
+    if (!containerH || Math.abs(containerH - neededHeight) > 1) {
+      setContainerH(neededHeight);
+    }
   }, []);
 
   useLayoutEffect(() => {
@@ -96,14 +103,16 @@ export default function LaserWorkflowSection() {
     return (
       <div ref={refEl} className={className} style={style}> {/* ← apply style */}
         <div
-          className="bg-[#FFFCF6] rounded-xl border border-gray-200/50 shadow-[0_1px_4px_rgba(0,0,0,0.05)] p-5"
+          className="bg-[#FFFCF6] rounded-xl border border-gray-200/50 shadow-[0_1px_4px_rgba(0,0,0,0.05)] flex flex-col overflow-hidden"
           style={{ width: CARD_W }}
         >
-          <h3 className="text-[#010207] text-[16px] tracking-tight mb-1">
-            <Num n={step.num} /> {step.title}
-          </h3>
-          <p className="text-[#44484f] text-[13px] leading-relaxed mb-4">{step.desc}</p>
-          <img src={step.image} alt={step.title} className="w-full rounded-lg object-cover" onLoad={onImgLoad} />
+          <div className="p-5 pb-4">
+            <h3 className="text-[#010207] text-[16px] tracking-tight mb-1">
+              <Num n={step.num} /> {step.title}
+            </h3>
+            <p className="text-[#44484f] text-[13px] leading-relaxed">{step.desc}</p>
+          </div>
+          <img src={step.image} alt={step.title} className="w-full object-contain" onLoad={onImgLoad} />
         </div>
       </div>
     );
@@ -115,7 +124,11 @@ export default function LaserWorkflowSection() {
         <h2 className="text-[34px] text-[#010207] mb-10">Arbetsflöde för laserskanning</h2>
 
         {/* Desktop / tablet stage */}
-        <div ref={containerRef} className="relative hidden md:block min-h-[1500px]">
+        <div
+          ref={containerRef}
+          className="relative hidden md:block"
+          style={{ height: containerH ?? 1200 }}
+        >
           <Card step={steps[0]} refEl={c1Ref} className="absolute top-0 left-0" />
           <Card step={steps[1]} refEl={c2Ref} className="absolute" style={{ top: GAP, ...centerStyle }} />
           <Card step={steps[2]} refEl={c3Ref} className="absolute" style={{ top: GAP * 2, right: 0 }} />

@@ -37,7 +37,7 @@ export default function HeroSection() {
         <div className="relative flex items-end justify-end h-full md:mr-[calc(-1*(100vw-100%)/2)] w-[calc(50vw+((100vw-100%)/2))]">
           <div className="relative w-full h-[70%] md:h-[93%]">
             <Image
-              src="/images/hero.png" // change to your image
+              src="/images/laserskanninghero.png" // change to your image
               alt="Teknisk konsult på arbetsplats"
               fill
               priority
