@@ -10,11 +10,11 @@ export default function ContactCtaSection() {
           <div className="flex h-[500px]">
             <div className="flex-1 p-8 md:p-12 flex flex-col justify-center">
               <h2 className="text-[32px] text-[#010207] mb-4">
-              Redo att effektivisera < br />
-              maskinarbetet?
+                Din partner i <br />
+                3D-laserskanning
               </h2>
               <p className="text-gray-700/80 leading-relaxed max-w-lg mb-6">
-              Oavsett om du behöver en komplett lösning från modell till utrustning – eller vill digitalisera delar av din maskinpark – hjälper vi dig att arbeta smartare, säkrare och mer exakt.
+              Med över 20 års erfarenhet i branschen och toppmoderna laserskanningsverktyg är Milan Mätkonsult din pålitliga partner för exakt, tillförlitlig och effektiv datainsamling. Från små bostadsprojekt till stora infrastrukturutvecklingar levererar vi resultat som stödjer bättre beslut och smidigare processer.
               </p>
               <button className="inline-flex items-center gap-2 bg-[#E88026] text-white text-[15px] px-6 py-3 rounded-xl hover:bg-[#d46f1c] transition w-fit">
                 Kostnadsfri offert
@@ -22,9 +22,9 @@ export default function ContactCtaSection() {
               </button>
             </div>
 
-            <div className="flex-shrink-0 pr-10">
+            <div className="flex-shrink-0">
               <img
-                src="/images/maskin-cta.png"
+                src="/images/droneCTA.png"
                 alt="Surveyor drawing"
                 className="h-full w-full object-contain"
               />
