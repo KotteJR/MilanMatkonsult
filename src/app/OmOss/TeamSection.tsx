@@ -28,6 +28,12 @@ const team = [
     img: "/images/team/david.png",
   },
   {
+    name: "Kenan Jasarspahic",
+    phone: "0702-81 14 59",
+    email: "kenan@milanmatkonsult.com",
+    img: "/images/team/kenan.png",
+  },
+  {
     name: "Branimir Ristic",
     phone: "0761-15 03 23",
     email: "branimir@milanmatkonsult.com",
