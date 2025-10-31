@@ -4,16 +4,16 @@ import { ArrowRight, Clock, Headphones, TrendingUp, Wrench, Upload } from "lucid
 
 export default function ContactSection() {
   return (
-    <section className="w-full bg-white py-20 md:py-18">
+    <section className="w-full bg-white py-12 md:py-18">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 px-6 md:px-8 lg:px-12 items-start">
         {/* Left side info */}
         <div className="space-y-8">
-          <h2 className="text-[34px] text-black">
+          <h2 className="mt-6 text-3xl md:text-4xl font-medium text-[#010207]">
             Ansök här – snabbt <br /> och enkelt
           </h2>
 
           {/* Why work with us section */}
-          <div className="space-y-6 mt-15">
+          <div className="space-y-6 md:mt-15">
             <h3 className="text-[20px] text-black">
               Varför jobba hos oss?
             </h3>
@@ -66,7 +66,7 @@ export default function ContactSection() {
           </div>
 
           {/* Telefonnummer and CV Upload on same row */}
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="block text-[14px] mb-3 text-black">
                 Telefonnummer

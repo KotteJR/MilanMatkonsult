@@ -46,7 +46,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <p className="text-[14px] text-gray-600 mb-1">Telefon</p>
-                  <p className="text-sm text-black whitespace-nowrap">040-123 456</p>
+                  <p className="text-sm text-black">040-123 456</p>
                 </div>
               </div>
             </div>
@@ -59,7 +59,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <p className="text-[14px] text-gray-600 mb-1">E-post</p>
-                  <p className="text-sm text-black whitespace-nowrap">
+                  <p className="text-sm text-black">
                     info@milanmatkonsult.com
                   </p>
                 </div>
@@ -74,7 +74,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <p className="text-[14px] text-gray-600 mb-1">Adress</p>
-                  <p className="text-sm text-black whitespace-nowrap">
+                  <p className="text-sm text-black">
                     Östra Rönneholmsvägen 20, 211 47 Malmö
                   </p>
                 </div>

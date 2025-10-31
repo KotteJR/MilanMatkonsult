@@ -2,7 +2,7 @@
 
 export function MaskinIntroSection() {
   return (
-    <section className="w-full bg-white md:mt-8 py-20 md:py-18">
+    <section className="w-full bg-white md:mt-8 py-12 md:py-18 mt-12">
       <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
         {/* Tag and Title above the grid */}
         <div className="mb-8 md:mb-12">
@@ -18,22 +18,17 @@ export function MaskinIntroSection() {
           </div>
 
           {/* Main Heading */}
-          <h2 className="text-[34px] text-center text-[#010207] leading-snug">
-            Effektiv mätning från luften – <br /> utan att kompromissa med <br /> noggrannhet
+          <h2 className="mt-6 text-3xl md:text-4xl text-[#010207] leading-snug text-center">
+            Effektiv mätning från luften – <br className="hidden md:block" /> utan att kompromissa med <br className="hidden md:block" /> noggrannhet
           </h2>
         </div>
 
         {/* Two Column Layout */}
         <div className="flex md:flex-row flex-col gap-8 md:gap-14 lg:gap-16 items-start">
           {/* Left Column - Text Content */}
-          <div className="flex flex-col justify-between h-[400px] flex-1">
-            {/* First Paragraph with Orange Accent */}
-            <p className="relative text-gray-700/80 text-[18px] leading-relaxed">
-            Maskinstyrning innebär att grävmaskiner, hjullastare och bandschaktare arbetar direkt utifrån en exakt 3D-modell. Vår roll är att skapa dessa modeller, verifiera koordinater och säkerställa att maskinen alltid arbetar enligt projektets specifikationer – med millimeterprecision.
-            </p>
-
-            {/* Yellow Card */}
-            <div className="bg-[#FFFCF6] rounded-xl shadow-sm p-6 border border-gray-200/50">
+          <div className="flex flex-col md:flex-col-reverse h-[400px] flex-1 md:justify-between">
+            {/* Yellow Card below heading */}
+            <div className="bg-[#FFFCF6] rounded-xl shadow-sm p-6 border border-gray-200/50 mt-4 md:mt-0">
               <div className="flex items-start">
                 <div className="w-[5px] bg-[#E88026] rounded-lg h-4.5 mr-2 mt-[2px]" />
                 <div className="pl-2">
@@ -46,15 +41,25 @@ export function MaskinIntroSection() {
                 </div>
               </div>
             </div>
+
+            {/* Intro Paragraph */}
+            <p className="relative mt-8 md:mt-0 max-w-2xl text-base md:text-lg leading-relaxed text-[#A0A0A0]">
+            Maskinstyrning innebär att grävmaskiner, hjullastare och bandschaktare arbetar direkt utifrån en exakt 3D-modell. Vår roll är att skapa dessa modeller, verifiera koordinater och säkerställa att maskinen alltid arbetar enligt projektets specifikationer – med millimeterprecision.
+            </p>
           </div>
 
-          {/* Right Column - Image with 16:9 aspect ratio */}
-          <div className="flex-1 h-[400px] rounded-xl overflow-hidden">
-            <img
-              src="/videos/maskin-video.png"
-              alt="-"
+          {/* Right Column - Video (replaces image) */}
+          <div className="flex-1 h-[400px] rounded-xl overflow-hidden md:mt-0 mt-2">
+            <video
               className="w-full h-full object-cover object-left"
-            />
+              autoPlay
+              muted
+              playsInline
+              loop
+              poster="/videos/maskin-video.png"
+            >
+              <source src="/videos/maskin-video.mp4" type="video/mp4" />
+            </video>
           </div>
         </div>
       </div>

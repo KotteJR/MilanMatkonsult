@@ -32,7 +32,7 @@ export default function FAQSection() {
   const [openItems, setOpenItems] = useState<Set<number>>(new Set([0]));
 
   return (
-    <section className="w-full bg-white py-20 md:py-18">
+    <section className="w-full bg-white relative z-0 py-12 md:py-18">
       <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16">
         {/* Left: section label + heading (sticky) */}
         <div className="lg:sticky lg:top-32 self-start">
@@ -44,7 +44,7 @@ export default function FAQSection() {
             </span>
           </div>
 
-          <h2 className="text-3xl md:text-4xl font-medium text-[#010207] leading-snug">
+          <h2 className="mt-2 text-3xl md:text-4xl font-medium text-[#010207] leading-snug">
             Har du frågor?
             <br />
             Vi har svaren.
@@ -52,7 +52,7 @@ export default function FAQSection() {
         </div>
 
         {/* Right: accordions */}
-        <div className="max-w-3xl w-full space-y-6">
+        <div className="max-w-3xl mt-[-20px] md:mt-0 w-full space-y-6">
           {DATA.map((item, i) => {
             const isOpen = openItems.has(i);
             return (
@@ -84,7 +84,7 @@ export default function FAQSection() {
                         "inline-flex h-7 w-7 items-center justify-center rounded-full transition-all duration-300 ease-in-out",
                         isOpen
                           ? "bg-[#E88026] text-white border border-[#E88026]"
-                          : "text-gray-500 border border-gray-400",
+                          : "text-gray-700 border border-gray-400",
                       ].join(" ")}
                     >
                       <div className={`transition-transform duration-300 ease-in-out ${isOpen ? 'rotate-45' : 'rotate-0'}`}>
@@ -101,7 +101,7 @@ export default function FAQSection() {
                   ].join(" ")}
                 >
                   <div className="bg-[#F8F8F8] rounded-b-2xl px-6 py-5">
-                    <p className="text-[15px] leading-relaxed text-gray-700/90">
+                    <p className="text-[15px] leading-relaxed text-gray-600">
                       {item.a}
                     </p>
                   </div>

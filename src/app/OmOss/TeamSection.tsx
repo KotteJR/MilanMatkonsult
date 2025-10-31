@@ -67,34 +67,34 @@ const team = [
 
 export default function TeamSection() {
   return (
-    <section className="w-full bg-white py-20 md:py-18">
+    <section className="w-full bg-white py-12 md:py-18">
       <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
-        <h2 className="text-[30px] pb-2 md:text-[34px] font-medium text-[#010207] mb-12">
+        <h2 className="mt-6 text-3xl md:text-4xl font-medium text-[#010207] mb-12">
           Vårt team
         </h2>
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 md:gap-24 max-w-7xl">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 md:gap-10 max-w-7xl">
           {team.map((member, i) => (
             <div
               key={i}
-              className="flex flex-col items-center text-left space-y-4"
+              className="flex flex-col w-full space-y-4"
             >
-              <div className="w-[220px] h-[240px] overflow-hidden rounded-xl border border-gray-200">
+              <div className="w-full aspect-[220/240] overflow-hidden rounded-xl border border-gray-200 md:max-w-[220px] md:mx-auto">
                 <Image
                   src={member.img}
                   alt={member.name}
-                  width={240}
+                  width={300}
                   height={240}
                   className="object-cover object-top w-full h-full"
                 />
               </div>
-              <div>
-                <p className="font-medium text-[#010207] text-[16px]">
+              <div className="text-center">
+                <p className="font-medium mb-1 text-[#010207] text-lg">
                   {member.name}
                 </p>
-                <p className="text-sm text-[#D8843E]">{member.phone}</p>
+                <p className="text-md mb-1 text-[#D8843E]">{member.phone}</p>
                 <a
                   href={`mailto:${member.email}`}
-                  className="text-sm text-[#D8843E] hover:underline"
+                  className="text-md text-[#D8843E] hover:underline"
                 >
                   {member.email}
                 </a>

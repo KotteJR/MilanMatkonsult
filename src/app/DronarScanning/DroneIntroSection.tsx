@@ -2,7 +2,7 @@
 
 export function DroneIntroSection() {
   return (
-    <section className="w-full bg-white py-20 md:py-18">
+    <section className="w-full bg-white py-12 md:py-18 md:mt-0 mt-8">
       <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
         {/* Tag and Title above the grid */}
         <div className="mb-8 md:mb-12">
@@ -16,8 +16,8 @@ export function DroneIntroSection() {
           </div>
 
           {/* Main Heading */}
-          <h2 className="text-[34px] text-[#010207] leading-snug">
-            Effektiv mätning från luften – <br /> utan att kompromissa med <br /> noggrannhet
+          <h2 className="text-3xl md:text-4xl font-medium text-[#010207]">
+            Effektiv mätning från luften – <br className="hidden md:block" /> utan att kompromissa med <br className="hidden md:block" /> noggrannhet
           </h2>
         </div>
 
@@ -29,21 +29,30 @@ export function DroneIntroSection() {
             <p className="relative text-gray-700/80 text-[16px] leading-relaxed">
               Drönarscanning är en snabb och exakt metod för att samla in geografisk data. Med hjälp av Leica Aibotix och högupplöst kamera kan vi skapa punktmoln, ortofoton, DWG-ritningar och digitala tvillingar.
             </p>
-
-            {/* Second Paragraph */}
-            <p className="text-gray-500/80 text-[12px] leading-relaxed">
+            {/* Second Paragraph (desktop/tablet only) */}
+            <p className="hidden md:block text-gray-500/80 text-base leading-relaxed">
               Perfekt för svårtillgängliga områden, stora platser eller projekt med snäva tidsramar: drönarskanning garanterar data av hög kvalitet med minimal störning på platsen.
             </p>
           </div>
 
-          {/* Right Column - Image with 16:9 aspect ratio */}
+          {/* Right Column - Video (replaces image) */}
           <div className="flex-1 h-[400px] rounded-xl overflow-hidden">
-            <img
-              src="/videos/dronar-video.png"
-              alt="-"
+            <video
               className="w-full h-full object-cover object-left"
-            />
+              autoPlay
+              muted
+              playsInline
+              loop
+              poster="/videos/dronar-video.png"
+            >
+              <source src="/videos/dronar-video.mp4" type="video/mp4" />
+            </video>
           </div>
+
+          {/* Second Paragraph (mobile only, placed after video) */}
+          <p className="md:hidden text-gray-500/80 text-[12px] leading-relaxed mt-2">
+            Perfekt för svårtillgängliga områden, stora platser eller projekt med snäva tidsramar: drönarskanning garanterar data av hög kvalitet med minimal störning på platsen.
+          </p>
         </div>
       </div>
     </section>

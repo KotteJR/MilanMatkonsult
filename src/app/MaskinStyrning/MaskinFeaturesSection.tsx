@@ -23,15 +23,15 @@ export function MaskinFeaturesSection() {
   ];
 
   return (
-    <section className="w-full bg-white py-20 md:py-18">
+    <section className="w-full bg-white py-12 md:py-18">
       <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-12">
         <div className="grid md:grid-cols-2 gap-12 items-start">
           {/* Left column */}
           <div className="flex flex-col justify-between h-full">
             <div>
               {/* Tag */}
-              <div className="inline-flex items-center mb-4">
-                <span className="flex items-center gap-2 px-3 py-1 rounded-md bg-gray-100 text-gray-500 text-xs tracking-[0.15em] uppercase">
+              <div className="flex items-center justify-center md:justify-start mb-4">
+                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-gray-100 text-gray-500 text-xs tracking-[0.15em] uppercase">
                   <span className="h-1 w-1 rounded-full bg-gray-400/70" />
                   Vad du får med våra modeller
                   <span className="h-1 w-1 rounded-full bg-gray-400/70" />
@@ -39,19 +39,19 @@ export function MaskinFeaturesSection() {
               </div>
 
               {/* Headings */}
-              <h2 className="text-[40px] text-[#010207] leading-tight">
+              <h2 className="text-3xl mt-6 md:text-4xl font-medium text-[#010207] leading-snug md:text-left text-center">
                 Rätt från första <br/> skoptaget 
               </h2>
             </div>
 
-            <p className="text-[16px] text-gray-400 md:max-w-md mt-12">
+            <p className="mt-4 max-w-2xl text-base md:text-lg leading-relaxed text-[#A0A0A0] md:max-w-md md:text-left text-center">
             Från planering till slutlig utjämning säkerställer vår maskinstyrningstjänst snabbare, mer precisa och fullt understödda operationer i varje steg av processen.
             </p>
           </div>
 
           {/* Right column */}
-          <div className="flex flex-col justify-end items-end">
-            <div className="max-w-fit ml-auto">
+          <div className="flex flex-col justify-end items-center md:items-end">
+            <div className="max-w-fit mx-auto md:mx-0 md:ml-auto">
               {features.map((feature) => {
                 const Icon = feature.icon;
                 return (

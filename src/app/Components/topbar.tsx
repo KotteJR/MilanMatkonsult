@@ -21,8 +21,8 @@ export default function Topbar() {
 
         {/* Right: Contact Buttons */}
         <div className="flex items-center gap-3 flex-wrap">
-          {/* Location Button */}
-          <button className="flex items-center gap-2 rounded-xl bg-[#E88026] text-white p-[2px] pr-2 hover:bg-[#cf660d] transition">
+          {/* Location Button (hidden on mobile) */}
+          <button className="hidden sm:flex items-center gap-2 rounded-xl bg-[#E88026] text-white p-[2px] pr-2 hover:bg-[#cf660d] transition">
             <div className="flex items-center bg-white text-[#E88026] rounded-lg py-2 px-3 gap-2">
               <MapPin size={16} strokeWidth={2} />
               <span className="text-sm font-medium">

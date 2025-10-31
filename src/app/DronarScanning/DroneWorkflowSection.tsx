@@ -103,8 +103,8 @@ export default function LaserWorkflowSection() {
     return (
       <div ref={refEl} className={className} style={style}> {/* ← apply style */}
         <div
-          className="bg-[#FFFCF6] rounded-xl border border-gray-200/50 shadow-[0_1px_4px_rgba(0,0,0,0.05)] flex flex-col overflow-hidden"
-          style={{ width: CARD_W }}
+          className="bg-[#FFFCF6] rounded-xl border border-gray-200/50 shadow-[0_1px_4px_rgba(0,0,0,0.05)] flex flex-col overflow-hidden w-full"
+          style={{ width: "100%", maxWidth: CARD_W }}
         >
           <div className="p-5 pb-4">
             <h3 className="text-[#010207] text-[16px] tracking-tight mb-1">
@@ -119,9 +119,9 @@ export default function LaserWorkflowSection() {
   }
 
   return (
-    <section className="w-full bg-white py-20 mt-10">
-      <div className="max-w-7xl mx-auto px-10">
-        <h2 className="text-[34px] text-[#010207] mb-10">Arbetsflöde för laserskanning</h2>
+    <section className="w-full bg-white py-12 md:py-18 mt-[-20px]">
+      <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
+        <h2 className="mt-6 text-3xl md:text-4xl font-medium text-[#010207] mb-6">Arbetsflöde för laserskanning</h2>
 
         {/* Desktop / tablet stage */}
         <div

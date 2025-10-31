@@ -34,9 +34,9 @@ export default function TrustedClientsSection() {
   }, [clients.length]);
 
   return (
-    <section className="w-full bg-white py-20 md:py-18">
+    <section className="w-full bg-white py-12 md:py-18">
       <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12 flex flex-col items-center">
-        <p className="text-gray-500 text-center mb-10 text-base md:text-lg">
+        <p className="max-w-2xl mx-auto text-base md:text-lg leading-relaxed text-[#A0A0A0] text-center mb-6">
           Betrodd av kommuner, byggfirmor och konsulter i hela Skåne
         </p>
 

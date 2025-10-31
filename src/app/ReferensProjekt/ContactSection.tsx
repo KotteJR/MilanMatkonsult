@@ -4,7 +4,7 @@ import { Phone, Mail, MapPin, ArrowRight, Check } from "lucide-react";
 
 export default function ContactSection() {
   return (
-    <section className="w-full bg-white py-20 md:py-18">
+    <section className="w-full bg-white py-12 md:py-18">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 px-6 md:px-8 lg:px-12 items-start">
         {/* Left side info */}
         <div className="space-y-6">
@@ -46,7 +46,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <p className="text-[14px] text-gray-600 mb-1">Telefon</p>
-                  <p className="text-sm text-black whitespace-nowrap">040-123 456</p>
+                  <p className="text-sm text-black">040-123 456</p>
                 </div>
               </div>
             </div>
@@ -59,7 +59,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <p className="text-[14px] text-gray-600 mb-1">E-post</p>
-                  <p className="text-sm text-black whitespace-nowrap">
+                  <p className="text-sm text-black">
                     info@milanmatkonsult.com
                   </p>
                 </div>
@@ -74,7 +74,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <p className="text-[14px] text-gray-600 mb-1">Adress</p>
-                  <p className="text-sm text-black whitespace-nowrap">
+                  <p className="text-sm text-black">
                     Östra Rönneholmsvägen 20, 211 47 Malmö
                   </p>
                 </div>

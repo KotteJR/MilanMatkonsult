@@ -16,18 +16,16 @@ export default function HeroSection() {
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 lg:px-12 h-full flex flex-col items-center justify-center text-center gap-10">
         {/* Tagline */}
         <div className="flex items-center justify-center gap-3 text-sm uppercase tracking-widest text-white/80">
-          <span>—</span>
           <span>Certifierade mättekniker</span>
-          <span>—</span>
         </div>
 
         {/* Headline */}
-        <h1 className="text-5xl md:text-6xl leading-tight">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl leading-tight px-2">
           Mätteknik med <br className="hidden md:block" /> millimeterprecision.
         </h1>
 
         {/* Subheading */}
-        <p className="max-w-2xl text-xl text-white leading-relaxed">
+        <p className="max-w-[34rem] text-base sm:text-lg md:text-xl text-white leading-relaxed px-3">
           Vi hjälper byggare, kommuner och konsulter att fatta rätt beslut –
           med exakt data, moderna verktyg och över 20 års erfarenhet i fält.
         </p>

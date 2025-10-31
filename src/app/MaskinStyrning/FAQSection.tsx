@@ -32,7 +32,7 @@ export default function FAQSection() {
   const [openItems, setOpenItems] = useState<Set<number>>(new Set([0]));
 
   return (
-    <section className="w-full bg-white py-20 md:py-18">
+    <section className="w-full bg-white py-12 md:py-18">
       <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16">
         {/* Left: section label + heading (sticky) */}
         <div className="lg:sticky lg:top-32 self-start">

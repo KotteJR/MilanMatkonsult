@@ -15,6 +15,8 @@ import {
   Phone,
   ArrowRight,
   Navigation,
+  Menu,
+  X,
 } from "lucide-react";
 
 /**
@@ -27,7 +29,7 @@ import {
 function TopBar() {
   return (
     <div className="bg-white text-sm">
-      <div className="mx-auto max-w-7xl flex items-center justify-between px-10 py-3">
+      <div className="mx-auto max-w-7xl flex items-center justify-between px-6 md:px-8 lg:px-12 py-3">
         {/* Left: Logo */}
         <div className="flex items-center">
           <Image
@@ -41,8 +43,8 @@ function TopBar() {
 
         {/* Right: Contact Buttons */}
         <div className="flex items-center gap-3 flex-wrap">
-          {/* Location Button */}
-          <button className="flex items-center h-10 rounded-xl bg-[#E88026] text-white p-[1.5px] hover:bg-[#cf660d] transition">
+          {/* Location Button (hidden on mobile) */}
+          <button className="hidden sm:flex items-center h-10 rounded-xl bg-[#E88026] text-white p-[1.5px] hover:bg-[#cf660d] transition">
             <div className="flex items-center bg-white text-[#E88026] rounded-[10px] py-2 px-3 gap-2 h-full">
               <MapPin size={16} strokeWidth={2} />
               <span className="text-sm font-medium">
@@ -134,6 +136,9 @@ export default function Header() {
   const [closingByClick, setClosingByClick] = useState(false);
   const open = hovered || clicked || focused;
 
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   // Close dropdown on Escape
@@ -163,9 +168,9 @@ export default function Header() {
 
       {/* Sticky navigation bar */}
       <header className="sticky top-0 z-40 bg-white border-b border-gray-100">
-        <nav className="relative mx-auto flex max-w-7xl items-center justify-between px-10 py-4">
-          {/* Left: nav links */}
-          <div className="flex items-center gap-4">
+        <nav className="relative mx-auto flex max-w-7xl items-center justify-between px-6 md:px-8 lg:px-12 py-4">
+          {/* Left: nav links (hidden on mobile) */}
+          <div className="hidden md:flex items-center gap-4">
             <NavLink href="/" label="Hem" active={pathname === "/"} />
 
             {/* Tjänster trigger and dropdown */}
@@ -221,13 +226,6 @@ export default function Header() {
                           href={href}
                           role="menuitem"
                           className="group flex items-center gap-3 px-4 py-2 hover:bg-gray-50 transition"
-                          onClick={() => {
-                            setClosingByClick(true);
-                            setClicked(false);
-                            setHovered(false);
-                            setFocused(false);
-                            setTimeout(() => setClosingByClick(false), 100);
-                          }}
                         >
                           <Icon size={18} className="text-[#E88026]" />
                           <span
@@ -257,8 +255,26 @@ export default function Header() {
             <NavLink href="/Kontakt" label="Kontakt" active={pathname === "/Kontakt"} />
           </div>
 
-          {/* Right: Call to action button */}
-          <div>
+          {/* Mobile: hamburger left, CTA right */}
+          <div className="flex items-center justify-between w-full md:hidden">
+            <button
+              aria-label={mobileOpen ? "Stäng meny" : "Öppna meny"}
+              className="inline-flex items-center justify-center h-10 w-10 rounded-lg border border-gray-200 text-[#6B6B6B]"
+              onClick={() => setMobileOpen((v) => !v)}
+            >
+              {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+            <Link
+              href="/Kontakt"
+              className="inline-flex items-center gap-2 h-10 rounded-xl bg-[#E88026] px-4 text-white text-[14px] font-medium hover:bg-[#cf660d] transition"
+            >
+              Begär Offert
+              <FileText size={16} />
+            </Link>
+          </div>
+
+          {/* Desktop: CTA */}
+          <div className="hidden md:block">
             <Link
               href="/Kontakt"
               className="inline-flex items-center gap-2 rounded-xl bg-[#E88026] px-5 py-2.5 text-white text-[15px] font-medium hover:bg-[#cf660d] transition"
@@ -268,6 +284,85 @@ export default function Header() {
             </Link>
           </div>
         </nav>
+
+        {/* Mobile menu panel */}
+        {mobileOpen && (
+          <div className="md:hidden border-b border-gray-100">
+            <div className="mx-auto max-w-7xl px-6 md:px-8 lg:px-12 py-3 space-y-1">
+              {/* Home */}
+              <Link
+                href="/"
+                className={`block px-2 py-2 text-[16px] ${pathname === "/" ? "text-[#E88026]" : "text-[#6B6B6B] hover:text-[#E88026]"}`}
+              >
+                Hem
+              </Link>
+
+              {/* Tjänster dropdown (collapsible) */}
+              <button
+                type="button"
+                aria-expanded={mobileServicesOpen}
+                className="w-full flex items-center justify-between px-2 py-2 text-[16px] text-[#6B6B6B] hover:text-[#E88026]"
+                onClick={() => setMobileServicesOpen((v) => !v)}
+              >
+                <span>Tjänster</span>
+                <ChevronDown size={16} className={`${mobileServicesOpen ? "rotate-180 text-[#E88026]" : "text-[#6B6B6B]"} transition`} />
+              </button>
+              {mobileServicesOpen && (
+                <ul className="pl-3 border-l border-gray-200 ml-2 space-y-1 pb-1">
+                  {TJANSTER_ITEMS.map(({ href, label }) => (
+                    <li key={href}>
+                      <Link
+                        href={href}
+                        className={`block px-2 py-1.5 text-[15px] ${
+                          (pathname || "").startsWith(href)
+                            ? "text-[#E88026]"
+                            : "text-[#6B6B6B] hover:text-[#E88026]"
+                        }`}
+                        onClick={() => setMobileOpen(false)}
+                      >
+                        {label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
+
+              {/* Other links vertically stacked */}
+              <Link
+                href="/ReferensProjekt"
+                className={`block px-2 py-2 text-[16px] ${
+                  pathname === "/ReferensProjekt" ? "text-[#E88026]" : "text-[#6B6B6B] hover:text-[#E88026]"
+                }`}
+              >
+                Referens projekt
+              </Link>
+              <Link
+                href="/OmOss"
+                className={`block px-2 py-2 text-[16px] ${
+                  pathname === "/OmOss" ? "text-[#E88026]" : "text-[#6B6B6B] hover:text-[#E88026]"
+                }`}
+              >
+                Företag
+              </Link>
+              <Link
+                href="/Karriar"
+                className={`block px-2 py-2 text-[16px] ${
+                  pathname === "/Karriar" ? "text-[#E88026]" : "text-[#6B6B6B] hover:text-[#E88026]"
+                }`}
+              >
+                Karriär
+              </Link>
+              <Link
+                href="/Kontakt"
+                className={`block px-2 py-2 text-[16px] ${
+                  pathname === "/Kontakt" ? "text-[#E88026]" : "text-[#6B6B6B] hover:text-[#E88026]"
+                }`}
+              >
+                Kontakt
+              </Link>
+            </div>
+          </div>
+        )}
       </header>
     </>
   );

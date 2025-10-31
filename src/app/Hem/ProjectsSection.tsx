@@ -74,14 +74,14 @@ export default function ProjectsSection() {
     );
   }
   return (
-    <section className="w-full bg-white py-20 md:py-18">
+    <section className="w-full bg-white py-12 md:py-18">
       <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16">
         {/* Left text (sticky) */}
         <div className="lg:sticky lg:top-32 self-start">
-          <h2 className="text-3xl md:text-4xl font-medium text-[#010207] mb-4">
+          <h2 className="mt-6 text-3xl md:text-4xl font-medium text-[#010207] mb-4">
             Ett urval av våra<br />projekt
           </h2>
-          <p className="text-gray-500/70 leading-relaxed max-w-md text-lg">
+          <p className="mt-4 max-w-2xl text-base md:text-lg leading-relaxed text-[#A0A0A0]">
             Utförda mätuppdrag inom bygg, mark och <br /> infrastruktur.
           </p>
         </div>

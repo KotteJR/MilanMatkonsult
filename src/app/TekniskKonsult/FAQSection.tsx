@@ -32,7 +32,7 @@ export default function FAQSection() {
   const [openItems, setOpenItems] = useState<Set<number>>(new Set([0]));
 
   return (
-    <section className="w-full bg-white py-20 md:py-18">
+    <section className="w-full bg-white py-12 md:py-18">
       <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16">
         {/* Left: section label + heading (sticky) */}
         <div className="lg:sticky lg:top-32 self-start">
@@ -44,7 +44,7 @@ export default function FAQSection() {
             </span>
           </div>
 
-          <h2 className="text-3xl md:text-4xl font-medium text-[#010207] leading-snug">
+          <h2 className="text-3xl md:text-4xl font-medium text-[#010207] mt-2">
             Har du frågor?
             <br />
             Vi har svaren.
@@ -101,7 +101,7 @@ export default function FAQSection() {
                   ].join(" ")}
                 >
                   <div className="bg-[#F8F8F8] rounded-b-2xl px-6 py-5">
-                    <p className="text-[15px] leading-relaxed text-gray-700/90">
+                    <p className="text-[15px] leading-relaxed text-[#A0A0A0]">
                       {item.a}
                     </p>
                   </div>

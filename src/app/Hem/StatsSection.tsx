@@ -81,13 +81,13 @@ export default function StatsSection() {
   }, [isVisible]);
 
   return (
-    <section ref={sectionRef} className="w-full bg-white py-20 md:py-18">
+    <section ref={sectionRef} className="w-full bg-white py-8 mt-6 md:mt-0 md:py-18">
       <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-10">
         <div className="flex flex-col md:flex-row justify-center items-stretch text-center">
           {stats.map((item, index) => (
             <div
               key={index}
-              className="relative flex-1 px-6 py-10 flex flex-col items-center justify-center"
+              className="relative flex-1 px-6 py-6 md:py-10 flex flex-col items-center justify-center"
             >
               {/* Divider lines – appear only between middle columns */}
               {index !== stats.length - 1 && (
@@ -97,10 +97,10 @@ export default function StatsSection() {
               <h2 className="text-3xl md:text-4xl font-medium text-[#010207] mb-2">
                 {counts[index]}{item.suffix}
               </h2>
-              <h3 className="text-gray-500/80 font-medium mb-3 text-lg">
+              <h3 className="text-gray-800 font-medium mb-1 text-lg">
                 {item.title}
               </h3>
-              <p className="text-gray-500/70 leading-relaxed max-w-xs text-lg">
+              <p className="text-[#A0A0A0] leading-relaxed max-w-xs text-base md:text-lg">
                 {item.description}
               </p>
             </div>

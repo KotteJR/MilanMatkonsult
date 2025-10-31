@@ -23,9 +23,9 @@ export default function CertificationsSection() {
   ];
 
   return (
-    <section className="w-full bg-white py-20 md:py-18">
+    <section className="w-full bg-white py-12 md:py-18">
       <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12 text-center">
-        <h2 className="md:text-[34px] text-[#010207] mb-10">
+        <h2 className="mt-6 text-3xl md:text-4xl font-medium text-[#010207] mb-6">
           Certifieringar & behörighet
         </h2>
         <div className="grid md:grid-cols-3 gap-6">

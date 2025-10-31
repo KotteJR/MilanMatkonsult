@@ -1,9 +1,12 @@
 "use client";
 
+import Link from "next/link";
+
 type Service = {
   title: string;
   description: string;
   image: string;
+  href: string;
 };
 
 const SERVICES: Service[] = [
@@ -12,30 +15,34 @@ const SERVICES: Service[] = [
     description:
       "Exakta 3D-modeller med hjälp av avancerad laserskanningsteknik.",
     image: "/services/laserskanning.png",
+    href: "/LaserScanning",
   },
   {
     title: "Drönarmätning",
     description:
       "Flygfotografering och fotogrammetri med hög precision.",
     image: "/services/dronarmatning.png",
+    href: "/DronarScanning",
   },
   {
     title: "Teknisk konsultation",
     description:
       "Rådgivning och teknisk support genom hela byggprocessen.",
     image: "/services/tekniskkonsultation.png",
+    href: "/TekniskKonsult",
   },
   {
     title: "Maskinstyrning",
     description:
       "Effektiv mätning och utsättning med moderna maskinstyrsystem.",
     image: "/services/maskinstyrning.png",
+    href: "/MaskinStyrning",
   },
 ];
 
 export default function ServicesSection() {
   return (
-    <section className="w-full bg-white py-20 md:py-18">
+    <section className="w-full bg-white py-12 md:py-18">
       <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
         {/* Header */}
         <div className="text-center mb-16">
@@ -52,19 +59,21 @@ export default function ServicesSection() {
             <br className="hidden md:block" /> i varje skede
           </h2>
 
-          <p className="mt-4 max-w-2xl mx-auto text-base md:text-lg leading-relaxed text-gray-500/80">
+          <p className="mt-4 max-w-lg mx-auto text-base md:text-lg leading-relaxed text-[#A0A0A0]">
             Vi kombinerar modern utrustning med lång <br />
             erfarenhet för att leverera
             pålitliga mätlösningar för 
-            bygg, <br /> mark och infrastruktur.
+            bygg, mark och infrastruktur.
           </p>
         </div>
 
         {/* Scrollable card row */}
         <div className="flex overflow-x-auto gap-6 pb-2 snap-x snap-mandatory scrollbar-hide">
           {SERVICES.map((service) => (
-            <article
+            <Link
               key={service.title}
+              href={service.href}
+              aria-label={service.title}
               className="relative flex-none w-[340px] md:w-[400px] lg:w-[400px] h-[550px] rounded-xl overflow-hidden snap-start group"
             >
               {/* Background image */}
@@ -87,7 +96,7 @@ export default function ServicesSection() {
                   {service.description}
                 </p>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
       </div>

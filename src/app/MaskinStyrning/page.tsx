@@ -6,6 +6,17 @@ import MaskinStyrningServices from "./MaskinStyrningServices";
 import { MaskinFeaturesSection } from "./MaskinFeaturesSection";
 import ContactCtaSection from "./ContactCTASection";
 import FAQSection from "./FAQSection";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Maskinstyrning Skåne, Malmö | Milan Mätkonsult AB",
+  description: "Maskinstyrning i Skåne och Malmö. Grävmaskiner, hjullastare och bandschaktare med millimeterprecision. Erfaren maskinstyrningstjänst.",
+  keywords: ["maskinstyrning skåne", "maskinstyrning malmö", "grävmaskinstyrning", "hjullastarstyrning", "3d modell maskin", "maskinpositionering"],
+  openGraph: {
+    title: "Maskinstyrning Skåne, Malmö | Milan Mätkonsult AB",
+    description: "Maskinstyrning för grävmaskiner och hjullastare i Skåne. Millimeterprecision med 3D-modeller.",
+  },
+};
 
 export default function MaskinStyrning() {
   return (

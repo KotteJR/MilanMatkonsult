@@ -24,9 +24,9 @@ export default function CareersSection() {
   ];
 
   return (
-    <section className="w-full bg-white py-24 md:py-32">
+    <section className="w-full bg-white py-12 md:py-32">
       <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
-        <h2 className="text-[34px] text-[#010207] mb-12">
+        <h2 className="mt-6 text-3xl md:text-4xl font-medium text-[#010207] mb-12">
           Lediga tjänster
         </h2>
 

@@ -11,7 +11,7 @@ const services = [
 
 export function TechnicalServicesSection() {
   return (
-    <section className="w-full bg-white py-20 md:py-18 mt-10">
+    <section className="w-full bg-white py-12 md:py-18 mt-6">
       <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
         {/* Header */}
         <div className="mb-12">
@@ -25,7 +25,7 @@ export function TechnicalServicesSection() {
               </div>
             </div>
 
-            <h2 className="text-center text-[34px] text-[#010207]">
+            <h2 className="text-center mt-6 text-3xl md:text-4xl font-medium text-[#010207]">
             Teknik, erfarenhet och <br /> leveranssäkerhet  i varje flygning
             </h2>
           </div>
@@ -34,7 +34,7 @@ export function TechnicalServicesSection() {
           {services.map((item) => (
             <div
               key={item.id}
-              className="relative rounded-lg overflow-hidden aspect-[3/4]"
+              className="relative rounded-lg overflow-hidden aspect-[14/9] md:aspect-[3/4]"
             >
               <Image src={item.image} alt={item.id} fill className="object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/25 to-transparent" />

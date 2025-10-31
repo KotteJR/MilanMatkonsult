@@ -106,7 +106,7 @@ export default function ProjectsGridSection() {
 
   if (loading) {
     return (
-      <section className="w-full bg-white py-24 md:py-28">
+      <section className="w-full bg-white py-12 md:py-20">
         <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
           <div className="text-center py-12">
             <p className="text-gray-500">Laddar projekt...</p>
@@ -117,7 +117,7 @@ export default function ProjectsGridSection() {
   }
 
   return (
-    <section className="w-full bg-white py-24 md:py-28">
+    <section className="w-full bg-white py-12 md:py-24">
       <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
         {/* Header */}
         <div className="flex flex-col lg:flex-row gap-8 mb-8 mb-15 md:mb-20">
@@ -188,7 +188,7 @@ export default function ProjectsGridSection() {
         </div>
 
         {/* Cards */}
-        <div className="grid md:grid-cols-3 gap-6 md:gap-y-12">
+        <div className="grid md:grid-cols-3 gap-14 md:gap-y-12">
           {filteredAndSortedProjects.length > 0 ? (
             (showAll ? filteredAndSortedProjects : filteredAndSortedProjects.slice(0, 6)).map((p) => (
               <div key={p.id} className="rounded-2xl bg-white overflow-hidden">

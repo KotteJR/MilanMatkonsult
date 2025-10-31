@@ -52,7 +52,7 @@ export default async function ProjectDetailPage(props: any) {
   const thumbs: string[] = Array.isArray(project.gallery) ? project.gallery : [];
 
   return (
-    <section className="w-full bg-white py-24 md:py-24 md:">
+    <section className="w-full bg-white py-12 md:py-24 md:">
       <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
         <div className="grid md:grid-cols-2 gap-10 items-start">
           <div>
