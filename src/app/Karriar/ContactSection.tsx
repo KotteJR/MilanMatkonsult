@@ -1,8 +1,11 @@
 "use client";
 
+import { useState } from "react";
 import { ArrowRight, Clock, Headphones, TrendingUp, Wrench, Upload } from "lucide-react";
 
 export default function ContactSection() {
+  const [status, setStatus] = useState<"idle" | "ok" | "error">("idle");
+  const [submitting, setSubmitting] = useState(false);
   return (
     <section className="w-full bg-white py-12 md:py-18">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 px-6 md:px-8 lg:px-12 items-start">
@@ -40,13 +43,44 @@ export default function ContactSection() {
         </div>
 
         {/* RIGHT SIDE - Application Form */}
-        <form className="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm space-y-6">
+        <form
+          onSubmit={async (e) => {
+            e.preventDefault();
+            const form = e.currentTarget as HTMLFormElement;
+            const fd = new FormData(form);
+            const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement | null;
+            if (btn) btn.disabled = true;
+            try {
+              setStatus('idle');
+              setSubmitting(true);
+              const name = String(fd.get('name') || '').trim();
+              const email = String(fd.get('email') || '').trim();
+              if (!name || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                setStatus('error');
+                return;
+              }
+              const res = await fetch('/api/apply', {
+                method: 'POST',
+                body: fd,
+              });
+              const json = await res.json();
+              if (json?.ok) { setStatus('ok'); form.reset(); } else { setStatus('error'); }
+            } catch {
+              setStatus('error');
+            } finally {
+              if (btn) btn.disabled = false;
+              setSubmitting(false);
+            }
+          }}
+          className="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm space-y-6"
+        >
           {/* Namn */}
           <div>
             <label className="block text-[14px] mb-3 text-black">
               Namn
             </label>
             <input
+              name="name"
               type="text"
               placeholder="Skriv in ditt namn"
               className="w-full bg-[#F5F5F5] border border-gray-200 px-4 py-3 rounded-xl outline-none focus:ring-2 focus:ring-[#E88026] transition"
@@ -59,7 +93,8 @@ export default function ContactSection() {
               E-postadress
             </label>
             <input
-              type="text"
+              name="email"
+              type="email"
               placeholder="Skriv in din e-postadress"
               className="w-full bg-[#F5F5F5] border border-gray-200 px-4 py-3 rounded-xl outline-none focus:ring-2 focus:ring-[#E88026] transition"
             />
@@ -72,7 +107,8 @@ export default function ContactSection() {
                 Telefonnummer
               </label>
               <input
-                type="text"
+                name="phone"
+                type="tel"
                 placeholder="Skriv in ditt telefonnummer"
                 className="w-full bg-[#F5F5F5] border border-gray-200 px-4 py-3 rounded-xl outline-none focus:ring-2 focus:ring-[#E88026] transition"
               />
@@ -81,10 +117,7 @@ export default function ContactSection() {
               <label className="block text-[14px] mb-3 text-black">
                 Ladda upp CV (PDF/docx)
               </label>
-              <div className="w-full bg-[#F5F5F5] border border-gray-200 rounded-xl px-4 py-3 flex items-center gap-2 text-gray-500">
-                <Upload size={16} />
-                <span>Ladda upp CV</span>
-              </div>
+              <input name="cv" type="file" accept=".pdf,.doc,.docx,.rtf" className="w-full bg-[#F5F5F5] border border-gray-200 rounded-xl px-4 py-3 text-sm" />
             </div>
           </div>
 
@@ -94,6 +127,7 @@ export default function ContactSection() {
               Personligt brev
             </label>
             <textarea
+              name="coverLetter"
               placeholder="Skriv ditt personliga brev här..."
               rows={4}
               className="w-full bg-[#F5F5F5] border border-gray-200 px-4 py-3 rounded-xl outline-none focus:ring-2 focus:ring-[#E88026] transition resize-none"
@@ -101,10 +135,7 @@ export default function ContactSection() {
           </div>
 
           {/* Drag/Drop Upload Area */}
-          <div className="bg-[#F5F5F5] border border-gray-200 rounded-xl px-4 py-3 flex items-center gap-2 text-gray-500">
-            <Upload size={16} />
-            <span>valfritt fält med drag/drop upload</span>
-          </div>
+          <input type="text" name="website" className="hidden" tabIndex={-1} autoComplete="off" />
 
           {/* Message (Optional) */}
           <div>
@@ -112,6 +143,7 @@ export default function ContactSection() {
               Meddelande (Optional)
             </label>
             <textarea
+              name="message"
               placeholder="Skriv ditt meddelande här..."
               rows={3}
               className="w-full bg-[#F5F5F5] border border-gray-200 px-4 py-3 rounded-xl outline-none focus:ring-2 focus:ring-[#E88026] transition resize-none"
@@ -120,11 +152,18 @@ export default function ContactSection() {
 
           <button
             type="submit"
-            className="w-full flex items-center justify-center gap-2 bg-black text-white py-4 rounded-xl hover:bg-[#1a1a1a] transition"
+            className="w-full flex items-center justify-center gap-2 bg-black text-white py-4 rounded-xl hover:bg-[#1a1a1a] transition disabled:opacity-60"
+            disabled={submitting}
           >
-            Skicka ansökan
+            {submitting ? 'Skickar...' : 'Skicka ansökan'}
             <ArrowRight size={18} />
           </button>
+
+          {status !== 'idle' && (
+            <div aria-live="polite" className={`${status === 'ok' ? 'bg-green-50 text-green-700 border-green-200' : 'bg-red-50 text-red-700 border-red-200'} border rounded-xl px-4 py-3`}>
+              {status === 'ok' ? 'Tack! Din ansökan har skickats.' : 'Kunde inte skicka. Kontrollera uppgifterna och försök igen.'}
+            </div>
+          )}
         </form>
       </div>
     </section>

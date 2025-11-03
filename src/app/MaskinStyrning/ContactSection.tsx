@@ -1,8 +1,11 @@
 "use client";
 
+import { useState } from "react";
 import { Phone, Mail, MapPin, ArrowRight, Check } from "lucide-react";
 
 export default function ContactSection() {
+  const [status, setStatus] = useState<"idle" | "ok" | "error">("idle");
+  const [submitting, setSubmitting] = useState(false);
   return (
     <section className="w-full bg-white py-12 md:py-18">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 px-6 md:px-8 lg:px-12 items-start">
@@ -84,30 +87,70 @@ export default function ContactSection() {
         </div>
 
         {/* RIGHT SIDE */}
-        <form className="bg-[#FDFDFD] rounded-2xl p-8 border border-[#E9E9E9] shadow-[0_1px_2px_rgba(0,0,0,0.05)] space-y-6">
+        <form
+          onSubmit={async (e) => {
+            e.preventDefault();
+            const form = e.currentTarget as HTMLFormElement;
+            const data = Object.fromEntries(new FormData(form).entries());
+            const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement | null;
+            if (btn) btn.disabled = true;
+            try {
+              setStatus('idle');
+              setSubmitting(true);
+              if (!String(data.name || '').trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(data.email || ''))) {
+                setStatus('error');
+                return;
+              }
+              const res = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                  name: data.name,
+                  email: data.email,
+                  phone: data.phone,
+                  company: data.company,
+                  message: data.message,
+                  website: data.website,
+                }),
+              });
+              const json = await res.json();
+              if (json?.ok) { setStatus('ok'); form.reset(); } else { setStatus('error'); }
+            } catch {
+              setStatus('error');
+            } finally {
+              if (btn) btn.disabled = false;
+              setSubmitting(false);
+            }
+          }}
+          className="bg-[#FDFDFD] rounded-2xl p-8 border border-[#E9E9E9] shadow-[0_1px_2px_rgba(0,0,0,0.05)] space-y-6"
+        >
           {[
-            { label: "Namn", placeholder: "Skriv in ditt namn" },
-            { label: "E-postadress", placeholder: "Skriv in din e-postadress" },
-            { label: "Telefon", placeholder: "Skriv in ditt telefonnummer" },
-            { label: "Company", placeholder: "Skriv in ditt företagsnamn" },
-          ].map((field, i) => (
+            { name: 'name', label: "Namn", placeholder: "Skriv in ditt namn", type: 'text' },
+            { name: 'email', label: "E-postadress", placeholder: "Skriv in din e-postadress", type: 'email' },
+            { name: 'phone', label: "Telefon", placeholder: "Skriv in ditt telefonnummer", type: 'tel' },
+            { name: 'company', label: "Company", placeholder: "Skriv in ditt företagsnamn", type: 'text' },
+          ].map((field: any, i) => (
             <div key={i}>
               <label className="block text-[14px] mb-3 text-[#111]">
                 {field.label}
               </label>
               <input
-                type="text"
+                name={field.name}
+                type={field.type}
                 placeholder={field.placeholder}
                 className="w-full bg-[#F5F5F5] px-4 py-3 rounded-xl outline-none focus:ring-2 focus:ring-[#E88026] transition"
               />
             </div>
           ))}
 
+          <input name="website" type="text" className="hidden" tabIndex={-1} autoComplete="off" />
+
           <div>
             <label className="block text-[14px] mb-3 text-[#111]">
               Meddelande
             </label>
             <textarea
+              name="message"
               placeholder="Skriv ditt meddelande här..."
               rows={7}
               className="w-full bg-[#F5F5F5] px-4 py-3 rounded-xl outline-none focus:ring-2 focus:ring-[#E88026] transition resize-none"
@@ -116,11 +159,18 @@ export default function ContactSection() {
 
           <button
             type="submit"
-            className="w-full flex items-center justify-center gap-2 bg-black text-white py-4 rounded-xl hover:bg-[#1a1a1a] transition"
+            className="w-full flex items-center justify-center gap-2 bg-black text-white py-4 rounded-xl hover:bg-[#1a1a1a] transition disabled:opacity-60"
+            disabled={submitting}
           >
-            Skicka Meddelande
+            {submitting ? 'Skickar...' : 'Skicka Meddelande'}
             <ArrowRight size={18} />
           </button>
+
+          {status !== 'idle' && (
+            <div aria-live="polite" className={`${status === 'ok' ? 'bg-green-50 text-green-700 border-green-200' : 'bg-red-50 text-red-700 border-red-200'} border rounded-xl px-4 py-3`}>
+              {status === 'ok' ? 'Tack! Ditt meddelande har skickats.' : 'Kunde inte skicka. Kontrollera uppgifterna och försök igen.'}
+            </div>
+          )}
         </form>
       </div>
     </section>
