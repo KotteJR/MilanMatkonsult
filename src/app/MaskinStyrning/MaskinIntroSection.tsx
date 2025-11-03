@@ -44,7 +44,7 @@ export function MaskinIntroSection() {
 
             {/* Intro Paragraph */}
             <p className="relative mt-8 md:mt-0 max-w-2xl text-base md:text-lg leading-relaxed text-[#A0A0A0]">
-            Maskinstyrning innebär att grävmaskiner, hjullastare och bandschaktare arbetar direkt utifrån en exakt 3D-modell. Vår roll är att skapa dessa modeller, verifiera koordinater och säkerställa att maskinen alltid arbetar enligt projektets specifikationer – med millimeterprecision.
+            Maskinstyrning innebär att grävmaskiner, hjullastare och bandschaktare arbetar direkt utifrån en exakt 3D-modell. Vår roll är att skapa dessa modeller, verifiera koordinater och säkerställa att maskinen alltid arbetar enligt projektets specifikationer – med millimeterprecision. Läs mer om <a href="/DronarScanning" className="text-[#E88026] hover:underline">drönarscanning</a> och <a href="/LaserScanning" className="text-[#E88026] hover:underline">laserskanning</a> som underlag.
             </p>
           </div>
 

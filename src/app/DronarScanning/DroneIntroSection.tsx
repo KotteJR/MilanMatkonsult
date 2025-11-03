@@ -27,11 +27,11 @@ export function DroneIntroSection() {
           <div className="flex flex-col justify-between h-[400px] flex-1">
             {/* First Paragraph with Orange Accent */}
             <p className="relative text-gray-700/80 text-[16px] leading-relaxed">
-              Drönarscanning är en snabb och exakt metod för att samla in geografisk data. Med hjälp av Leica Aibotix och högupplöst kamera kan vi skapa punktmoln, ortofoton, DWG-ritningar och digitala tvillingar.
+              Drönarscanning är en snabb och exakt metod för att samla in geografisk data. Med hjälp av Leica Aibotix och högupplöst kamera kan vi skapa <a href="/DronarScanning" className="text-[#E88026] hover:underline">punktmoln</a>, <a href="/DronarScanning" className="text-[#E88026] hover:underline">ortofoton</a>, DWG-ritningar och digitala tvillingar.
             </p>
             {/* Second Paragraph (desktop/tablet only) */}
             <p className="hidden md:block text-gray-500/80 text-base leading-relaxed">
-              Perfekt för svårtillgängliga områden, stora platser eller projekt med snäva tidsramar: drönarskanning garanterar data av hög kvalitet med minimal störning på platsen.
+              Perfekt för svårtillgängliga områden, stora platser eller projekt med snäva tidsramar: drönarskanning garanterar data av hög kvalitet med minimal störning på platsen. Läs även om vår <a href="/LaserScanning" className="text-[#E88026] hover:underline">laserskanning</a> och <a href="/MaskinStyrning" className="text-[#E88026] hover:underline">maskinstyrning</a>.
             </p>
           </div>
 
@@ -51,7 +51,7 @@ export function DroneIntroSection() {
 
           {/* Second Paragraph (mobile only, placed after video) */}
           <p className="md:hidden text-gray-500/80 text-[12px] leading-relaxed mt-2">
-            Perfekt för svårtillgängliga områden, stora platser eller projekt med snäva tidsramar: drönarskanning garanterar data av hög kvalitet med minimal störning på platsen.
+            Perfekt för svårtillgängliga områden, stora platser eller projekt med snäva tidsramar: drönarskanning garanterar data av hög kvalitet med minimal störning på platsen. Se även <a href="/LaserScanning" className="text-[#E88026] hover:underline">laserskanning</a> och <a href="/MaskinStyrning" className="text-[#E88026] hover:underline">maskinstyrning</a>.
           </p>
         </div>
       </div>

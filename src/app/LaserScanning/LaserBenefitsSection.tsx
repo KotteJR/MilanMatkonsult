@@ -21,7 +21,7 @@ export default function LaserBenefitsSection() {
           {/* Left Column - Intro Text + Footer */}
           <div className="flex flex-col justify-between min-h-0 md:min-h-[250px]">
             <p className="relative pl-4 text-[#010207] text-[16px] leading-relaxed before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-0.5 before:bg-[#E88026] before:rounded-full md:mb-0 mb-6">
-              Tekniken är särskilt användbar för att snabbt och noggrant samla in data, vilket sparar både tid och resurser i byggprojekt och erbjuder följande fördelar:
+              Tekniken är särskilt användbar för att snabbt och noggrant samla in data, vilket sparar både tid och resurser i byggprojekt och erbjuder följande fördelar. Utforska även vår <a href="/DronarScanning" className="text-[#E88026] hover:underline">drönarscanning</a> för stora ytor och <a href="/MaskinStyrning" className="text-[#E88026] hover:underline">maskinstyrning</a> för utförande i fält.
             </p>
             
             {/* Footer Text - Bottom of Left Column */}

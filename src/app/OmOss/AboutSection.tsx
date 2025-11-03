@@ -35,7 +35,7 @@ export default function AboutSection() {
                   Milan hade sedan tidigare flera års arbetslivserfarenhet som väg-anläggning och husutsättare främst på Skanska Sverige AB, samt en tvåårig anställning på Lantmäteriet, som mät- och kartingenjör.
                 </p>
                 <p>
-                  Efter ett flertal framgångsrika år i branschen började behovet för nya medarbetare att växa fram. Resten är historia. Idag är vi flera heltidsanställda och företaget är en respekterad aktör på marknaden.
+                  Efter ett flertal framgångsrika år i branschen började behovet för nya medarbetare att växa fram. Resten är historia. Idag är vi flera heltidsanställda och företaget är en respekterad aktör på marknaden. Läs mer om våra tjänster inom <a href="/LaserScanning" className="text-[#E88026] hover:underline">laserskanning</a>, <a href="/DronarScanning" className="text-[#E88026] hover:underline">drönarscanning</a> och <a href="/MaskinStyrning" className="text-[#E88026] hover:underline">maskinstyrning</a>.
                 </p>
               </div>
             </div>
