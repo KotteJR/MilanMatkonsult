@@ -64,6 +64,10 @@ export const metadata: Metadata = {
     shortcut: '/favicon.ico',
     apple: '/favicon.ico',
   },
+};
+
+// Next.js recommends exporting viewport separately for theme color etc.
+export const viewport = {
   themeColor: '#ffffff',
 };
 
