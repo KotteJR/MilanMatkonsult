@@ -57,7 +57,7 @@ export async function POST(req: Request) {
     await resend.emails.send({
       from: "Webbplats <no-reply@milanmatkonsult.com>",
       to: [process.env.CONTACT_TO_EMAIL || "info@milanmatkonsult.com"],
-      reply_to: email,
+      replyTo: email,
       subject,
       html,
     });
