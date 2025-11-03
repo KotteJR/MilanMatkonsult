@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     title: "Om Oss | Milan Mätkonsult AB - Mätingenjör Skåne",
     description: "Mätteknikföretag i Malmö, Skåne sedan 2005. Erfaren personal och modern utrustning.",
   },
+  alternates: {
+    canonical: '/OmOss',
+  },
 };
 
 export default function Foretag () {

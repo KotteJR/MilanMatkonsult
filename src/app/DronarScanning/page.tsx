@@ -17,6 +17,9 @@ export const metadata: Metadata = {
     title: "Drönarscanning Skåne, Malmö | Milan Mätkonsult AB",
     description: "Professionell drönarscanning i Skåne och Malmö. Punktmoln, ortofoton, 3D-modeller och DWG-ritningar.",
   },
+  alternates: {
+    canonical: '/DronarScanning',
+  },
 };
 
 export default function DronarScanning() {

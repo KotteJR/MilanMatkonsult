@@ -40,3 +40,13 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .env*.local
+
+# video files (too large for git - use CDN/blob storage instead)
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.webm
+/public/videos/*.mp4
+/public/videos/*.mov
+/public/videos/*.avi

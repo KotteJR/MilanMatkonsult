@@ -15,6 +15,9 @@ export const metadata: Metadata = {
     title: "Teknisk Konsultation Skåne, Malmö | Milan Mätkonsult AB",
     description: "Teknisk konsultation inom byggnads- och geoteknik i Skåne. Erfaren konsultation sedan 2005.",
   },
+  alternates: {
+    canonical: '/TekniskKonsult',
+  },
 };
 
 export default function TekniskKonsult() {

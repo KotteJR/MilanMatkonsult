@@ -59,6 +59,12 @@ export const metadata: Metadata = {
     // Add Google Search Console verification when you have it
     // google: 'your-verification-code',
   },
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/favicon.ico',
+  },
+  themeColor: '#ffffff',
 };
 
 export default function RootLayout({

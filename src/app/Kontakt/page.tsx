@@ -11,6 +11,9 @@ export const metadata: Metadata = {
     title: "Kontakta Oss | Milan Mätkonsult AB - Malmö",
     description: "Kontakta oss för kostnadsfri offert. Milan Mätkonsult AB, Amiralsgatan 25, Malmö.",
   },
+  alternates: {
+    canonical: '/Kontakt',
+  },
 };
 
 export default function Kontakt () {

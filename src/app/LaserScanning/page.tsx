@@ -15,6 +15,9 @@ export const metadata: Metadata = {
     title: "Laserskanning Skåne, Malmö | Milan Mätkonsult AB",
     description: "Högprecisionstjänster med laserskanning i Skåne och Malmö. 3D-dokumentation för bygg- och anläggningsprojekt.",
   },
+  alternates: {
+    canonical: '/LaserScanning',
+  },
 };
 
 export default function TekniskKonsult() {

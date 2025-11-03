@@ -16,6 +16,9 @@ export const metadata: Metadata = {
     title: "Maskinstyrning Skåne, Malmö | Milan Mätkonsult AB",
     description: "Maskinstyrning för grävmaskiner och hjullastare i Skåne. Millimeterprecision med 3D-modeller.",
   },
+  alternates: {
+    canonical: '/MaskinStyrning',
+  },
 };
 
 export default function MaskinStyrning() {
