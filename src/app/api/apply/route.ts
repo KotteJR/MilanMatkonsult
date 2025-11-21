@@ -43,21 +43,40 @@ export async function POST(req: Request) {
       </div>
     `;
 
-    await resend.emails.send({
-      from: 'Rekrytering <no-reply@milanmatkonsult.com>',
-      to: [process.env.CONTACT_TO_EMAIL || 'aleksandar.kotevski@adamass.se'],
+    // Use Resend test domain for testing
+    // Once domain is verified, change to: "Rekrytering <no-reply@milanmatkonsult.com>"
+    const fromEmail = process.env.RESEND_FROM_EMAIL || "noreply@bruxero984.resend.app";
+    const toEmail = process.env.CONTACT_TO_EMAIL || 'aleksandar.kotevski@adamass.se';
+    
+    console.log('Sending application email:', { from: fromEmail, to: toEmail, hasAttachments: attachments.length > 0 });
+    
+    const result = await resend.emails.send({
+      from: `Rekrytering <${fromEmail}>`,
+      to: [toEmail],
       replyTo: email,
       subject: 'Ny jobbansökan via webbplatsen',
       html,
       attachments,
     });
 
+    console.log('Resend result:', JSON.stringify(result, null, 2));
+
+    if (!result.data) {
+      const errorMsg = result.error?.message || 'Failed to send email';
+      console.error('Resend error:', result.error);
+      throw new Error(errorMsg);
+    }
+
+    console.log('Application email sent successfully! ID:', result.data.id);
     return NextResponse.json({ ok: true });
   } catch (e) {
     console.error('Apply form error:', e);
+    const errorMessage = e instanceof Error ? e.message : 'Unexpected error';
+    // Don't expose internal errors to client, but log them
+    console.error('Full error details:', JSON.stringify(e, null, 2));
     return NextResponse.json({ 
       ok: false, 
-      error: e instanceof Error ? e.message : 'Unexpected error' 
+      error: 'Kunde inte skicka ansökan. Försök igen senare.' 
     }, { status: 500 });
   }
 }

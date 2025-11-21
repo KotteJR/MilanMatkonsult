@@ -48,7 +48,7 @@ export default function FAQSection() {
     };
 
     const scriptId = 'faq-structured-data';
-    let script = document.getElementById(scriptId);
+    let script = document.getElementById(scriptId) as HTMLScriptElement | null;
     if (!script) {
       script = document.createElement('script');
       script.id = scriptId;
