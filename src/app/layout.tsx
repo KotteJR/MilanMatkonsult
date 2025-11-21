@@ -76,23 +76,25 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const structuredData = {
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.milanmatkonsult.com';
+  
+  const localBusinessData = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": "https://www.milanmatkonsult.com",
+    "@id": `${baseUrl}#localbusiness`,
     "name": "Milan Mätkonsult AB",
     "description": "Mätingenjör i Skåne, Malmö. Erbjuder laserskanning, drönarscanning, maskinstyrning och teknisk konsultation.",
-    "url": "https://www.milanmatkonsult.com",
-    "logo": "https://www.milanmatkonsult.com/logos/logo.svg",
-    "image": "https://www.milanmatkonsult.com/images/aboutus.png",
-    "telephone": "+46 40 123 45",
+    "url": baseUrl,
+    "logo": `${baseUrl}/logos/logo.svg`,
+    "image": `${baseUrl}/images/aboutus.png`,
+    "telephone": "+46 735 13 31 65",
     "email": "info@milanmatkonsult.com",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Amiralsgatan 25",
+      "streetAddress": "Lugna gatan 1",
       "addressLocality": "Malmö",
       "addressRegion": "Skåne",
-      "postalCode": "211 55",
+      "postalCode": "211 59",
       "addressCountry": "SE"
     },
     "geo": {
@@ -150,12 +152,47 @@ export default function RootLayout({
     ]
   };
 
+  const organizationData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": `${baseUrl}#organization`,
+    "name": "Milan Mätkonsult AB",
+    "url": baseUrl,
+    "logo": `${baseUrl}/logos/logo.svg`,
+    "image": `${baseUrl}/images/aboutus.png`,
+    "description": "Mätingenjör i Skåne, Malmö. Erbjuder laserskanning, drönarscanning, maskinstyrning och teknisk konsultation.",
+    "foundingDate": "2005",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Lugna gatan 1",
+      "addressLocality": "Malmö",
+      "addressRegion": "Skåne",
+      "postalCode": "211 59",
+      "addressCountry": "SE"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+46 735 13 31 65",
+      "contactType": "customer service",
+      "email": "info@milanmatkonsult.com",
+      "areaServed": "SE",
+      "availableLanguage": "sv"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/milan-matkonsult-ab"
+    ]
+  };
+
   return (
     <html lang="sv">
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessData) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationData) }}
         />
       </head>
       <body className={`${inter.variable} antialiased`}>

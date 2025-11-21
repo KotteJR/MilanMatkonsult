@@ -6,6 +6,7 @@ import MaskinStyrningServices from "./MaskinStyrningServices";
 import { MaskinFeaturesSection } from "./MaskinFeaturesSection";
 import ContactCtaSection from "./ContactCTASection";
 import FAQSection from "./FAQSection";
+import Breadcrumbs from "../Components/Breadcrumbs";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -23,15 +24,22 @@ export const metadata: Metadata = {
 
 export default function MaskinStyrning() {
   return (
-    <div>
-      <Hero />
-      <MaskinIntroSection />
-      <MaskinStyrningServices />
-      <MaskinFeaturesSection />
-      <FAQSection />
-      <ContactCtaSection />
-      <ContactSection />
-      <Footer />
-    </div>
+    <>
+      <Breadcrumbs items={[
+        { name: "Hem", url: "/" },
+        { name: "Tjänster", url: "/VaraTjanster" },
+        { name: "Maskinstyrning", url: "/MaskinStyrning" }
+      ]} />
+      <div>
+        <Hero />
+        <MaskinIntroSection />
+        <MaskinStyrningServices />
+        <MaskinFeaturesSection />
+        <FAQSection />
+        <ContactCtaSection />
+        <ContactSection />
+        <Footer />
+      </div>
+    </>
   );
 }

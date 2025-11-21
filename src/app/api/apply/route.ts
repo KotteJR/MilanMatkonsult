@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 
 export async function POST(req: Request) {
   try {
@@ -17,7 +17,10 @@ export async function POST(req: Request) {
     if (website) return NextResponse.json({ ok: true });
     if (!name || !email) return NextResponse.json({ ok: false, error: 'Missing required fields' }, { status: 400 });
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return NextResponse.json({ ok: false, error: 'Invalid email' }, { status: 400 });
-    if (!process.env.RESEND_API_KEY) return NextResponse.json({ ok: false, error: 'Email service not configured' }, { status: 500 });
+    if (!resend || !process.env.RESEND_API_KEY) {
+      console.error('RESEND_API_KEY not configured');
+      return NextResponse.json({ ok: false, error: 'Email service not configured' }, { status: 500 });
+    }
 
     const attachments: { filename: string; content: Buffer }[] = [];
     if (cv) {
@@ -42,7 +45,7 @@ export async function POST(req: Request) {
 
     await resend.emails.send({
       from: 'Rekrytering <no-reply@milanmatkonsult.com>',
-      to: [process.env.CONTACT_TO_EMAIL || 'info@milanmatkonsult.com'],
+      to: [process.env.CONTACT_TO_EMAIL || 'aleksandar.kotevski@adamass.se'],
       replyTo: email,
       subject: 'Ny jobbansökan via webbplatsen',
       html,
@@ -51,7 +54,11 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ ok: true });
   } catch (e) {
-    return NextResponse.json({ ok: false, error: 'Unexpected error' }, { status: 500 });
+    console.error('Apply form error:', e);
+    return NextResponse.json({ 
+      ok: false, 
+      error: e instanceof Error ? e.message : 'Unexpected error' 
+    }, { status: 500 });
   }
 }
 

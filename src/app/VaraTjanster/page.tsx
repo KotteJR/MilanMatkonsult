@@ -1,4 +1,30 @@
+import type { Metadata } from "next";
 import Footer from "../Components/Footer";
+
+export const metadata: Metadata = {
+  title: "Våra Tjänster | Milan Mätkonsult AB",
+  description: "Milan Mätkonsult AB erbjuder omfattande mättekniska tjänster: drönarscanning, laserskanning, maskinstyrning och teknisk konsultation i Skåne, Malmö.",
+  keywords: ["mättekniska tjänster skåne", "drönarscanning tjänster", "laserskanning tjänster", "maskinstyrning tjänster", "teknisk konsultation skåne"],
+  alternates: {
+    canonical: '/VaraTjanster',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'sv_SE',
+    url: '/VaraTjanster',
+    siteName: 'Milan Mätkonsult AB',
+    title: 'Våra Tjänster | Milan Mätkonsult AB',
+    description: 'Milan Mätkonsult AB erbjuder omfattande mättekniska tjänster: drönarscanning, laserskanning, maskinstyrning och teknisk konsultation.',
+    images: [
+      {
+        url: '/images/aboutus.png',
+        width: 1200,
+        height: 630,
+        alt: 'Milan Mätkonsult AB - Våra Tjänster',
+      },
+    ],
+  },
+};
 
 export default function VaraTjanster() {
   return (

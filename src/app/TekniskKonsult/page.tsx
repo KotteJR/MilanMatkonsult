@@ -5,6 +5,7 @@ import CertificationsSection from "./CertificationsSection";
 import FAQSection from "./FAQSection";
 import ContactCtaSection from "./ContactCTASection";
 import Footer from "../Components/Footer";
+import Breadcrumbs from "../Components/Breadcrumbs";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -22,14 +23,21 @@ export const metadata: Metadata = {
 
 export default function TekniskKonsult() {
   return (
-    <div>
-      <Hero />
-      <TechnicalServicesSection />
-      <ModernEquipmentSection />
-      <CertificationsSection />
-      <FAQSection />
-      <ContactCtaSection />
-      <Footer />
-    </div>
+    <>
+      <Breadcrumbs items={[
+        { name: "Hem", url: "/" },
+        { name: "Tjänster", url: "/VaraTjanster" },
+        { name: "Teknisk Konsultation", url: "/TekniskKonsult" }
+      ]} />
+      <div>
+        <Hero />
+        <TechnicalServicesSection />
+        <ModernEquipmentSection />
+        <CertificationsSection />
+        <FAQSection />
+        <ContactCtaSection />
+        <Footer />
+      </div>
+    </>
   );
 }

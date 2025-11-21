@@ -27,7 +27,7 @@ export function TechnicalServicesSection() {
 
             <h2 className="text-center mt-6 text-3xl md:text-4xl font-medium text-[#010207]">
             Teknik, erfarenhet och <br /> leveranssäkerhet  i varje flygning
-            </h2>
+        </h2>
           </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
@@ -51,9 +51,9 @@ export function TechnicalServicesSection() {
               <div className="flex items-start flex-1">
                 <div className="w-[5px] bg-[#E88026] rounded-lg h-4.5 mr-2 mt-[2px]" />
                 <p className="text-[15px] text-[#4B4B4B] leading-relaxed pl-2">
-                  Vi anpassar varje flygning efter projektets krav och levererar alla filer snabbt i rätt format. 
-                  Oavsett om det handlar om kartor, volymer eller digitala modeller – vi har verktygen och kompetensen.
-                </p>
+                Vi anpassar varje flygning efter projektets krav och levererar alla filer snabbt i rätt format.
+                Oavsett om det handlar om kartor, volymer eller digitala modeller – vi har verktygen och kompetensen.
+              </p>
               </div>
             </div>
           </div>

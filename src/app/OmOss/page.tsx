@@ -3,6 +3,7 @@ import TeamSection from "./TeamSection";
 import TrustedClientsSection from "./TrustedClientsSection";
 import MapSection from "./MapSection";
 import Footer from "../Components/Footer";
+import Breadcrumbs from "../Components/Breadcrumbs";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -20,12 +21,18 @@ export const metadata: Metadata = {
 
 export default function Foretag () {
     return (
-      <div>
-        <AboutSection />
-        <TrustedClientsSection />
-        <TeamSection />
-        <MapSection />
-        <Footer />
-      </div>
+      <>
+        <Breadcrumbs items={[
+          { name: "Hem", url: "/" },
+          { name: "Om Oss", url: "/OmOss" }
+        ]} />
+        <div>
+          <AboutSection />
+          <TrustedClientsSection />
+          <TeamSection />
+          <MapSection />
+          <Footer />
+        </div>
+      </>
     );
   }

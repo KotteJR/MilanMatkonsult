@@ -107,9 +107,9 @@ export default function LaserWorkflowSection() {
           style={{ width: "100%", maxWidth: CARD_W }}
         >
           <div className="p-5 pb-4">
-            <h3 className="text-[#010207] text-[16px] tracking-tight mb-1">
-              <Num n={step.num} /> {step.title}
-            </h3>
+          <h3 className="text-[#010207] text-[16px] tracking-tight mb-1">
+            <Num n={step.num} /> {step.title}
+          </h3>
             <p className="text-[#44484f] text-[13px] leading-relaxed">{step.desc}</p>
           </div>
           <img src={step.image} alt={step.title} className="w-full object-contain" onLoad={onImgLoad} />

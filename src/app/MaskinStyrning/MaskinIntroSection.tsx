@@ -11,9 +11,9 @@ export function MaskinIntroSection() {
             <div className="inline-flex text-xs uppercase tracking-[0.18em] text-gray-500">
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-gray-100/80 text-gray-500">
                 <span className="h-1 w-1  rounded-full bg-gray-400/70" />
-                <span>Vad är maskinstyrning?</span>
+              <span>Vad är maskinstyrning?</span>
                 <span className="h-1 w-1  rounded-full bg-gray-400/70" />
-              </span>
+            </span>
             </div>
           </div>
 

@@ -1,4 +1,30 @@
+import type { Metadata } from "next";
 import Footer from "../Components/Footer";
+
+export const metadata: Metadata = {
+  title: "Vanliga frågor | Milan Mätkonsult AB",
+  description: "Vanliga frågor om mätteknik, laserskanning, drönarscanning, maskinstyrning och teknisk konsultation. Milan Mätkonsult AB svarar på dina frågor om våra tjänster i Skåne.",
+  keywords: ["faq mätteknik", "frågor laserskanning", "frågor drönarscanning", "frågor maskinstyrning"],
+  alternates: {
+    canonical: '/VanligaFragor',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'sv_SE',
+    url: '/VanligaFragor',
+    siteName: 'Milan Mätkonsult AB',
+    title: 'Vanliga frågor | Milan Mätkonsult AB',
+    description: 'Vanliga frågor om mätteknik, laserskanning, drönarscanning, maskinstyrning och teknisk konsultation.',
+    images: [
+      {
+        url: '/images/aboutus.png',
+        width: 1200,
+        height: 630,
+        alt: 'Milan Mätkonsult AB - Vanliga frågor',
+      },
+    ],
+  },
+};
 
 export default function VanligaFragor() {
   return (

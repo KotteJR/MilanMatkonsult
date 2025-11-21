@@ -7,6 +7,7 @@ import ContactSection from "./ContactSection";
 import { TechnicalServicesSection } from "./WhyUs";
 import FAQSection from "./FAQSection";
 import Footer from "../Components/Footer";
+import Breadcrumbs from "../Components/Breadcrumbs";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -24,16 +25,23 @@ export const metadata: Metadata = {
 
 export default function DronarScanning() {
   return (
-    <div>
-      <Hero />
-      <DroneIntroSection />
-      <DroneWorkflowSection />
-      <DroneFeaturesSection />
-      <TechnicalServicesSection />
-      <FAQSection />
-      <ContactCTASection />
-      <ContactSection />
-      <Footer />
-    </div>
+    <>
+      <Breadcrumbs items={[
+        { name: "Hem", url: "/" },
+        { name: "Tjänster", url: "/VaraTjanster" },
+        { name: "Drönarscanning", url: "/DronarScanning" }
+      ]} />
+      <div>
+        <Hero />
+        <DroneIntroSection />
+        <DroneWorkflowSection />
+        <DroneFeaturesSection />
+        <TechnicalServicesSection />
+        <FAQSection />
+        <ContactCTASection />
+        <ContactSection />
+        <Footer />
+      </div>
+    </>
   );
 }

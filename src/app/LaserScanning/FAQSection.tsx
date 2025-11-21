@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Plus, Minus } from "lucide-react";
 
 type FAQ = { q: string; a: string };
@@ -30,6 +30,33 @@ const DATA: FAQ[] = [
 
 export default function FAQSection() {
   const [openItems, setOpenItems] = useState<Set<number>>(new Set([0]));
+
+  // Add FAQPage structured data for SEO
+  useEffect(() => {
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.milanmatkonsult.com';
+    const faqData = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": DATA.map((item) => ({
+        "@type": "Question",
+        "name": item.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": item.a
+        }
+      }))
+    };
+
+    const scriptId = 'faq-structured-data-laser';
+    let script = document.getElementById(scriptId);
+    if (!script) {
+      script = document.createElement('script');
+      script.id = scriptId;
+      script.type = 'application/ld+json';
+      document.head.appendChild(script);
+    }
+    script.textContent = JSON.stringify(faqData);
+  }, []);
 
   return (
     <section className="w-full bg-white py-12 md:py-18">
