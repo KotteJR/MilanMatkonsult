@@ -48,8 +48,8 @@ export default function Footer() {
               height={35}
               className="object-contain mb-3"
             />
-            <p className="mb-1">Amiralsgatan 25, 211 55 Malmö</p>
-            <p className="mb-1">Telefon: +46 40 123 45</p>
+            <p className="mb-1">Borrgatan 6, 211 24 Malmö</p>
+            <p className="mb-1">Telefon: +46 73-513-3165</p>
             <p>E-post: info@milanmatkonsult.com</p>
           </div>
 
