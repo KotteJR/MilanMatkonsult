@@ -48,7 +48,7 @@ function TopBar() {
             <div className="flex items-center bg-white text-[#E88026] rounded-[10px] py-2 px-3 gap-2 h-full">
               <MapPin size={16} strokeWidth={2} />
               <span className="text-sm font-medium">
-                Lugna gatan 1 · 211 59 Malmö
+                Borrgatan 6, 211 24 Malmö · 211 59 Malmö
               </span>
             </div>
             <div className="px-2 flex items-center h-full">
@@ -60,7 +60,7 @@ function TopBar() {
           <button className="flex items-center h-10 rounded-xl bg-[#E88026] text-white p-[1.5px] hover:bg-[#cf660d] transition">
             <div className="flex items-center bg-white text-[#E88026] rounded-[10px] py-2 px-3 gap-2 h-full">
               <Phone size={16} strokeWidth={2} />
-              <span className="text-sm font-medium">0735-13 31 65</span>
+              <span className="text-sm font-medium">+46 735 13 31 65</span>
             </div>
             <div className="px-2 flex items-center h-full">
               <ArrowRight size={16} strokeWidth={2} />

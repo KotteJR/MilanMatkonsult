@@ -49,7 +49,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <p className="text-[14px] text-gray-600 mb-1">Telefon</p>
-                  <p className="text-sm text-black">+46 73-513-3165</p>
+                  <p className="text-sm text-black">+46 735 13 31 65</p>
                 </div>
               </div>
             </div>
@@ -78,7 +78,7 @@ export default function ContactSection() {
                 <div>
                   <p className="text-[14px] text-gray-600 mb-1">Adress</p>
                   <p className="text-sm text-black">
-                    Östra Rönneholmsvägen 20, 211 47 Malmö
+                    Borrgatan 6, 211 24 Malmö
                   </p>
                 </div>
               </div>

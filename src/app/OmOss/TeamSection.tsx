@@ -5,7 +5,7 @@ import Image from "next/image";
 const team = [
   {
     name: "Petar Mitrovic",
-    phone: "0735-13 31 65",
+    phone: "+46 735 13 31 65",
     email: "petar@milanmatkonsult.com",
     img: "/images/team/petar.png",
   },

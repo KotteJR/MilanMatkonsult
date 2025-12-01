@@ -91,7 +91,7 @@ export default function RootLayout({
     "email": "info@milanmatkonsult.com",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Lugna gatan 1",
+      "streetAddress": "Borrgatan 6, 211 24 Malmö",
       "addressLocality": "Malmö",
       "addressRegion": "Skåne",
       "postalCode": "211 59",
@@ -164,7 +164,7 @@ export default function RootLayout({
     "foundingDate": "2005",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Lugna gatan 1",
+      "streetAddress": "Borrgatan 6, 211 24 Malmö",
       "addressLocality": "Malmö",
       "addressRegion": "Skåne",
       "postalCode": "211 59",
